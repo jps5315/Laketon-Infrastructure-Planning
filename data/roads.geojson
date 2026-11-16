@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "name": "Laketon Roads",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "RD-001",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-104.9950, 39.7390, 1610],
+          [-104.9930, 39.7395, 1612],
+          [-104.9910, 39.7400, 1615],
+          [-104.9890, 39.7405, 1620]
+        ]
+      },
+      "properties": {
+        "road_id": "RD-001",
+        "name": "Valley Connector Road",
+        "condition_score": 3,
+        "condition_label": "Poor",
+        "surface_type": "Asphalt",
+        "lanes": 2,
+        "speed_limit_mph": 35,
+        "last_inspection": "2025-11-14",
+        "repair_priority": "High",
+        "estimated_repair_cost_usd": 420000
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RD-002",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-104.9890, 39.7405, 1620],
+          [-104.9870, 39.7415, 1635],
+          [-104.9850, 39.7430, 1658],
+          [-104.9830, 39.7445, 1680]
+        ]
+      },
+      "properties": {
+        "road_id": "RD-002",
+        "name": "Hillside Arterial",
+        "condition_score": 6,
+        "condition_label": "Fair",
+        "surface_type": "Asphalt",
+        "lanes": 4,
+        "speed_limit_mph": 45,
+        "last_inspection": "2026-03-02",
+        "repair_priority": "Medium",
+        "estimated_repair_cost_usd": 210000
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RD-003",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-104.9830, 39.7445, 1680],
+          [-104.9810, 39.7460, 1710],
+          [-104.9790, 39.7475, 1745],
+          [-104.9770, 39.7490, 1782]
+        ]
+      },
+      "properties": {
+        "road_id": "RD-003",
+        "name": "Summit Ridge Drive",
+        "condition_score": 8,
+        "condition_label": "Good",
+        "surface_type": "Concrete",
+        "lanes": 2,
+        "speed_limit_mph": 30,
+        "last_inspection": "2026-07-18",
+        "repair_priority": "Low",
+        "estimated_repair_cost_usd": 85000
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RD-004",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-104.9950, 39.7390, 1610],
+          [-104.9945, 39.7370, 1608],
+          [-104.9940, 39.7350, 1606],
+          [-104.9935, 39.7330, 1604]
+        ]
+      },
+      "properties": {
+        "road_id": "RD-004",
+        "name": "Laketon Main Street",
+        "condition_score": 2,
+        "condition_label": "Critical",
+        "surface_type": "Asphalt",
+        "lanes": 4,
+        "speed_limit_mph": 40,
+        "last_inspection": "2025-08-30",
+        "repair_priority": "Critical",
+        "estimated_repair_cost_usd": 890000
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RD-005",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-104.9770, 39.7490, 1782],
+          [-104.9755, 39.7505, 1810],
+          [-104.9740, 39.7520, 1845],
+          [-104.9725, 39.7535, 1875]
+        ]
+      },
+      "properties": {
+        "road_id": "RD-005",
+        "name": "Mesa View Boulevard",
+        "condition_score": 5,
+        "condition_label": "Fair",
+        "surface_type": "Asphalt",
+        "lanes": 2,
+        "speed_limit_mph": 35,
+        "last_inspection": "2026-01-11",
+        "repair_priority": "Medium",
+        "estimated_repair_cost_usd": 310000
+      }
+    }
+  ]
+}

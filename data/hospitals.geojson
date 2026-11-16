@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "name": "Laketon Hospitals & Clinics",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "HSP-001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9905, 39.7410, 1618]
+      },
+      "properties": {
+        "facility_id": "HSP-001",
+        "name": "Laketon General Hospital",
+        "type": "Hospital",
+        "beds": 240,
+        "has_emergency": true,
+        "helipad": true,
+        "phone": "720-555-0911",
+        "address": "300 Medical Center Drive, Laketon",
+        "elevation_m": 1618,
+        "note": "Primary trauma center for the region"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HSP-002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9760, 39.7510, 1850]
+      },
+      "properties": {
+        "facility_id": "HSP-002",
+        "name": "Mesa Ridge Medical Center",
+        "type": "Hospital",
+        "beds": 90,
+        "has_emergency": true,
+        "helipad": false,
+        "phone": "720-555-0922",
+        "address": "77 Mesa Top Road, Laketon",
+        "elevation_m": 1850,
+        "note": "Elevated location — 240m above valley floor. Road access via Summit Ridge Drive only."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HSP-003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9942, 39.7338, 1603]
+      },
+      "properties": {
+        "facility_id": "HSP-003",
+        "name": "Downtown Urgent Care Clinic",
+        "type": "Urgent Care",
+        "beds": 12,
+        "has_emergency": false,
+        "helipad": false,
+        "phone": "720-555-0933",
+        "address": "22 Main Street, Laketon",
+        "elevation_m": 1603,
+        "note": "Walk-in only. Dependent on Main Street access."
+      }
+    }
+  ]
+}

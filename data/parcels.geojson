@@ -1,0 +1,190 @@
+{
+  "type": "FeatureCollection",
+  "name": "Laketon Parcels",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "PCL-001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9960, 39.7385],
+          [-104.9940, 39.7385],
+          [-104.9940, 39.7395],
+          [-104.9960, 39.7395],
+          [-104.9960, 39.7385]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-001",
+        "owner_name": "Martinez Family Trust",
+        "land_use": "Residential",
+        "area_sqft": 8400,
+        "assessed_value_usd": 285000,
+        "address": "101 Valley Lane",
+        "zoning": "R-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-002",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9940, 39.7385],
+          [-104.9920, 39.7385],
+          [-104.9920, 39.7400],
+          [-104.9940, 39.7400],
+          [-104.9940, 39.7385]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-002",
+        "owner_name": "Laketon City Municipality",
+        "land_use": "Public / School",
+        "area_sqft": 42000,
+        "assessed_value_usd": 1200000,
+        "address": "210 Valley Lane",
+        "zoning": "P-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-003",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9920, 39.7385],
+          [-104.9900, 39.7385],
+          [-104.9900, 39.7405],
+          [-104.9920, 39.7405],
+          [-104.9920, 39.7385]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-003",
+        "owner_name": "GreenBuild LLC",
+        "land_use": "Commercial",
+        "area_sqft": 15600,
+        "assessed_value_usd": 640000,
+        "address": "330 Commerce Blvd",
+        "zoning": "C-2"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-004",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9900, 39.7400],
+          [-104.9875, 39.7400],
+          [-104.9875, 39.7420],
+          [-104.9900, 39.7420],
+          [-104.9900, 39.7400]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-004",
+        "owner_name": "Laketon Medical Properties Inc.",
+        "land_use": "Medical / Hospital",
+        "area_sqft": 88000,
+        "assessed_value_usd": 4500000,
+        "address": "300 Medical Center Drive",
+        "zoning": "I-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-005",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9875, 39.7415],
+          [-104.9850, 39.7415],
+          [-104.9850, 39.7435],
+          [-104.9875, 39.7435],
+          [-104.9875, 39.7415]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-005",
+        "owner_name": "Nguyen & Associates Properties",
+        "land_use": "Residential",
+        "area_sqft": 9200,
+        "assessed_value_usd": 320000,
+        "address": "45 Hillside Court",
+        "zoning": "R-2"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-006",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9960, 39.7380],
+          [-104.9940, 39.7380],
+          [-104.9940, 39.7390],
+          [-104.9960, 39.7390],
+          [-104.9960, 39.7380]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-006",
+        "owner_name": "Patel Retail Group",
+        "land_use": "Commercial",
+        "area_sqft": 12000,
+        "assessed_value_usd": 510000,
+        "address": "200 Main Street",
+        "zoning": "C-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-007",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9940, 39.7340],
+          [-104.9920, 39.7340],
+          [-104.9920, 39.7355],
+          [-104.9940, 39.7355],
+          [-104.9940, 39.7340]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-007",
+        "owner_name": "Laketon City Municipality",
+        "land_use": "Public / Charter School",
+        "area_sqft": 28000,
+        "assessed_value_usd": 980000,
+        "address": "55 Main Street",
+        "zoning": "P-1"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "PCL-008",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-104.9850, 39.7435],
+          [-104.9820, 39.7435],
+          [-104.9820, 39.7460],
+          [-104.9850, 39.7460],
+          [-104.9850, 39.7435]
+        ]]
+      },
+      "properties": {
+        "parcel_id": "PCL-008",
+        "owner_name": "Summit Development Corp",
+        "land_use": "Mixed Use",
+        "area_sqft": 22500,
+        "assessed_value_usd": 760000,
+        "address": "10 Summit Access Road",
+        "zoning": "MU-1"
+      }
+    }
+  ]
+}

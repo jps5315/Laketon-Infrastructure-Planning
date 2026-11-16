@@ -1,0 +1,83 @@
+{
+  "type": "FeatureCollection",
+  "name": "Laketon Schools",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "SCH-001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9920, 39.7380, 1613]
+      },
+      "properties": {
+        "facility_id": "SCH-001",
+        "name": "Laketon Valley Elementary",
+        "type": "Elementary",
+        "enrollment": 480,
+        "principal": "Dr. Sandra Reyes",
+        "phone": "720-555-0101",
+        "address": "210 Valley Lane, Laketon",
+        "has_bus_access": true,
+        "elevation_m": 1613
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SCH-002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9800, 39.7455, 1720]
+      },
+      "properties": {
+        "facility_id": "SCH-002",
+        "name": "Hillside Middle School",
+        "type": "Middle",
+        "enrollment": 620,
+        "principal": "Mr. James Okafor",
+        "phone": "720-555-0202",
+        "address": "88 Ridgeline Ave, Laketon",
+        "has_bus_access": true,
+        "elevation_m": 1720
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SCH-003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9755, 39.7530, 1855]
+      },
+      "properties": {
+        "facility_id": "SCH-003",
+        "name": "Summit High School",
+        "type": "High",
+        "enrollment": 1100,
+        "principal": "Ms. Priya Nair",
+        "phone": "720-555-0303",
+        "address": "1 Summit Blvd, Laketon",
+        "has_bus_access": true,
+        "elevation_m": 1855,
+        "note": "Located on elevated mesa — 242m above valley floor"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SCH-004",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-104.9940, 39.7345, 1604]
+      },
+      "properties": {
+        "facility_id": "SCH-004",
+        "name": "Laketon Charter Academy",
+        "type": "Charter",
+        "enrollment": 290,
+        "principal": "Mr. David Chen",
+        "phone": "720-555-0404",
+        "address": "55 Main Street, Laketon",
+        "has_bus_access": false,
+        "elevation_m": 1604
+      }
+    }
+  ]
+}

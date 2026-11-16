@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laketon Smart City – Infrastructure Analyzer</title>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.29/esri/themes/dark/main.css"
+    />
+
+    <script>
+      var dojoConfig = {
+        packages: [
+          { name: "app", location: location.pathname.replace(/\/[^/]*$/, "") + "/src" }
+        ]
+      };
+    </script>
+
+    <script src="https://js.arcgis.com/4.29/"></script>
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html, body, #viewDiv {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+      }
+
+      /* ── Side panel ────────────────────────────────────────────────────── */
+      #panel {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 310px;
+        max-height: calc(100vh - 32px);
+        background: rgba(15, 20, 35, 0.93);
+        color: #e8eaf0;
+        border-radius: 8px;
+        z-index: 50;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Drag handle */
+      #panel-header {
+        padding: 10px 14px 0;
+        cursor: grab;
+        user-select: none;
+        flex-shrink: 0;
+      }
+      #panel-header:active { cursor: grabbing; }
+
+      #panel-header h2 {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #7ec8e3;
+        margin: 0 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #btnCollapse {
+        background: none;
+        border: none;
+        color: #7ec8e3;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 1;
+        padding: 0 2px;
+      }
+
+      /* ── Tabs ──────────────────────────────────────────────────────────── */
+      #tab-bar {
+        display: flex;
+        border-bottom: 1px solid #1e3a5a;
+        flex-shrink: 0;
+      }
+
+      .tab-btn {
+        flex: 1;
+        padding: 7px 4px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: #8899aa;
+        font-size: 11px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .tab-btn:hover  { color: #c8dff0; }
+      .tab-btn.active { color: #7ec8e3; border-bottom-color: #7ec8e3; }
+
+      /* Collapsible body */
+      #panel-body {
+        overflow-y: auto;
+        flex: 1 1 auto;
+      }
+
+      .tab-pane {
+        display: none;
+        padding: 12px 14px 14px;
+      }
+      .tab-pane.active { display: block; }
+
+      p.subtitle {
+        font-size: 11px;
+        color: #8899aa;
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+        margin-bottom: 7px;
+        background: #1a2a3a;
+        color: #c8dff0;
+        border: 1px solid #2a4a6a;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.15s;
+      }
+      .btn:hover    { background: #1e3a5a; }
+      .btn:disabled { opacity: 0.45; cursor: default; }
+
+      .btn-secondary {
+        background: #0f2030;
+        border-color: #1e3a4a;
+        color: #7ec8e3;
+        font-size: 11px;
+        padding: 6px 10px;
+      }
+      .btn-secondary:hover { background: #1a3040; }
+
+      #report {
+        margin-top: 12px;
+        font-size: 12px;
+        line-height: 1.7;
+        color: #aabbcc;
+        border-top: 1px solid #2a3a4a;
+        padding-top: 10px;
+        min-height: 36px;
+      }
+      #report strong { color: #7ec8e3; }
+
+      #dashboard-content {
+        font-size: 12px;
+        color: #aabbcc;
+        min-height: 36px;
+      }
+      #dashboard-content strong { color: #7ec8e3; }
+    </style>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+
+    <div id="panel">
+      <!-- Drag handle -->
+      <div id="panel-header">
+        <h2>
+          Laketon Analyzer
+          <button id="btnCollapse" title="Collapse / Expand">▲</button>
+        </h2>
+      </div>
+
+      <!-- Tab bar -->
+      <div id="tab-bar">
+        <button class="tab-btn active" data-tab="analysis">Analysis</button>
+        <button class="tab-btn"        data-tab="dashboard">Dashboard</button>
+        <button class="tab-btn"        data-tab="present">Present</button>
+      </div>
+
+      <!-- Tab panes -->
+      <div id="panel-body">
+
+        <!-- ① Analysis tab -->
+        <div class="tab-pane active" id="tab-analysis">
+          <p class="subtitle">Search or click a road, then analyze to see affected facilities.</p>
+
+          <button class="btn" id="btnLoadLayers">① Load All Layers</button>
+          <button class="btn" id="btnAnalyze" disabled>② Analyze Selected Road</button>
+          <button class="btn" id="btnClear"   disabled>③ Clear Analysis</button>
+
+          <div id="report">Click <strong>Load All Layers</strong> to begin.</div>
+
+          <!-- CSV export — hidden until analysis runs -->
+          <button class="btn btn-secondary" id="btnExport"
+                  style="display:none;margin-top:8px">⬇ Export Results as CSV</button>
+        </div>
+
+        <!-- ② Dashboard tab -->
+        <div class="tab-pane" id="tab-dashboard">
+          <p class="subtitle">Fleet-wide road condition summary from Enterprise.</p>
+
+          <button class="btn btn-secondary" id="btnRefreshDashboard"
+                  style="margin-bottom:10px">↻ Refresh Summary</button>
+
+          <div id="dashboard-content">
+            <em style="color:#8899aa">Load layers first, then open this tab.</em>
+          </div>
+        </div>
+
+        <!-- ③ Present tab -->
+        <div class="tab-pane" id="tab-present">
+          <p class="subtitle">
+            Hide the panel for a clean full-screen map view.
+            Press <strong>F</strong> to toggle at any time.
+          </p>
+
+          <button class="btn btn-secondary" id="btnPresent" style="margin-bottom:10px">
+            ⛶ Enter Presentation (F)
+          </button>
+
+          <div style="font-size:11px;color:#8899aa;line-height:1.7">
+            <strong style="color:#7ec8e3">In presentation mode:</strong><br>
+            • Panel is hidden — map fills the screen<br>
+            • Selected road info appears as a bottom overlay<br>
+            • Use the 🖨 Print button (top-left) to export to PDF<br>
+            • Press <strong>F</strong> again to return to normal view
+          </div>
+        </div>
+
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->
+
+    <script>
+      // ── Panel drag ────────────────────────────────────────────────────────
+      (function () {
+        var panel    = document.getElementById("panel");
+        var handle   = document.getElementById("panel-header");
+        var dragging = false;
+        var startX, startY, startLeft, startTop;
+
+        handle.addEventListener("mousedown", function (e) {
+          if (e.target.id === "btnCollapse") return;
+          var rect = panel.getBoundingClientRect();
+          panel.style.left  = rect.left + "px";
+          panel.style.top   = rect.top  + "px";
+          panel.style.right = "auto";
+          dragging  = true;
+          startX    = e.clientX;
+          startY    = e.clientY;
+          startLeft = rect.left;
+          startTop  = rect.top;
+          e.preventDefault();
+        });
+
+        document.addEventListener("mousemove", function (e) {
+          if (!dragging) return;
+          var newLeft = Math.max(0, Math.min(window.innerWidth  - panel.offsetWidth,  startLeft + e.clientX - startX));
+          var newTop  = Math.max(0, Math.min(window.innerHeight - panel.offsetHeight, startTop  + e.clientY - startY));
+          panel.style.left = newLeft + "px";
+          panel.style.top  = newTop  + "px";
+        });
+
+        document.addEventListener("mouseup", function () { dragging = false; });
+
+        // ── Collapse / expand ─────────────────────────────────────────────
+        var body        = document.getElementById("panel-body");
+        var tabBar      = document.getElementById("tab-bar");
+        var btnCollapse = document.getElementById("btnCollapse");
+        var collapsed   = false;
+
+        btnCollapse.addEventListener("click", function () {
+          collapsed = !collapsed;
+          body.style.display    = collapsed ? "none" : "";
+          tabBar.style.display  = collapsed ? "none" : "";
+          btnCollapse.textContent = collapsed ? "▼" : "▲";
+          btnCollapse.title       = collapsed ? "Expand" : "Collapse";
+        });
+
+        // ── Tab switching ─────────────────────────────────────────────────
+        var tabBtns  = document.querySelectorAll(".tab-btn");
+        var tabPanes = document.querySelectorAll(".tab-pane");
+
+        tabBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var target = btn.getAttribute("data-tab");
+            tabBtns.forEach(function (b)  { b.classList.remove("active"); });
+            tabPanes.forEach(function (p) { p.classList.remove("active"); });
+            btn.classList.add("active");
+            document.getElementById("tab-" + target).classList.add("active");
+          });
+        });
+      })();
+    </script>
+
+    <script src="main.js"></script>
+  </body>
+</html>

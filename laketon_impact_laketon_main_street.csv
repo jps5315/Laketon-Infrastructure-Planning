@@ -1,0 +1,12 @@
+Type,Name,Detail,Elevation (m),Elevation Delta (m),Notes
+Road,Laketon Main Street,Condition: Critical (2/10),0,0,Repair Priority: Critical
+School,Laketon Valley Elementary,undefined — 480 students,0,0,
+School,Laketon Charter Academy,undefined — 290 students,0,0,
+Hospital,Laketon General Hospital,Urgent Care — 240 beds,0,0,
+Hospital,Downtown Urgent Care Clinic,Urgent Care — 12 beds,0,0,
+Parcel,PCL-001,Martinez Family Trust — Residential,—,—,"$285,000"
+Parcel,PCL-002,Laketon City Municipality — Public / School,—,—,"$1,200,000"
+Parcel,PCL-003,GreenBuild LLC — Commercial,—,—,"$640,000"
+Parcel,PCL-004,Laketon Medical Properties Inc. — Medical / Hospital,—,—,"$4,500,000"
+Parcel,PCL-006,Patel Retail Group — Commercial,—,—,"$510,000"
+Parcel,PCL-007,Laketon City Municipality — Public / Charter School,—,—,"$980,000"
