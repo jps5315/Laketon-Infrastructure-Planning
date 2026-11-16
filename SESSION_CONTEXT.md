@@ -103,9 +103,3 @@ python -m http.server 8080
 Open http://localhost:8080 — login with Enterprise credentials when prompted.
 
 ---
-
-## How to Resume
-
-Tell Kiro:
-> "I am resuming the Laketon GIS project. Here is the session context: [paste this file]"
-> The project is complete. We can extend it, debug issues, or start a new phase.
